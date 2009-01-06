@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="/home/jefferson/java/jdk1.6.0_04/jre/lib/plugin.jar"/>
+	<classpathentry kind="lib" path="/home/jefferson/workspace/vorbis/lib/jogg-0.0.7.jar"/>
+	<classpathentry kind="lib" path="/home/jefferson/workspace/vorbis/lib/jorbis-0.0.15.jar"/>
+	<classpathentry kind="lib" path="/home/jefferson/workspace/vorbis/lib/tritonus_share.jar"/>
+	<classpathentry kind="lib" path="/home/jefferson/workspace/vorbis/lib/vorbisspi1.0.3.jar"/>
+	<classpathentry kind="output" path="classes"/>
+</classpath>
