@@ -11,6 +11,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
 import br.ufc.ivela.voice.gui.FancyBoardPanel;
+import br.ufc.ivela.voice.julius.JuliusConstants;
 import br.ufc.ivela.voice.sound.Player;
 import br.ufc.ivela.voice.teacher.Teacher;
 
@@ -62,6 +63,7 @@ public class FancyMouseHandler implements MouseListener, MouseMotionListener {
                                     this.teacher.getBoard().toggleButton(FancyBoardPanel.SPEAKER_BTN);
 
                                     if (this.teacher.getFocusText() != null) {
+                                    	    teacher.getBoard().setSoundMsg(JuliusConstants.SND_MSG_CON);
                                             Player player = new Player(this.teacher.getFocusText()
                                                             .getAudioURL(), this.teacher.getBoard());
                                             player.start();

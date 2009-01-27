@@ -16,7 +16,7 @@ public final class JuliusConstants {
     
     public static final String URL_WINDOWS = JULIUS_FILE_HOST+"windows/julius.zip";
     public static final String URL_LINUX = JULIUS_FILE_HOST+"linux/julius.zip";
-    public static final String BUILD_VERSION = "1.8";
+    public static final String BUILD_VERSION = "Homer";
     
     //public static final String WORD_GRAMMAR = "julian_word.jconf";
     //public static final String PRESENT_CONT = "julian_present_cont.jconf";
@@ -24,7 +24,12 @@ public final class JuliusConstants {
     
     public static String AUDIO_URL = "http://200.17.41.212/public_content/";
     public static String SERVLET_HOST = "http://200.17.41.212/";
-    public static String JULIUS_VERSION = "1.1.8";
+    public static String JULIUS_VERSION = "1.1.9";
     public static String BG_COLOR = "FFFFFF";
+    
+    public static String SND_MSG_CON = "connecting";
+    public static String SND_MSG_PLN = "playing";
+    public static String SND_MSG_STP = "stopped";
+    public static String SND_MSG_ERR = "!error!";
     
 }

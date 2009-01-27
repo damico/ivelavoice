@@ -45,4 +45,6 @@ public abstract class IBoard extends JPanel {
     public abstract boolean isBoardRequireJavaScript();
     
     public abstract void setTeacher(Teacher teacher);
+    
+    public abstract void setSoundMsg(String newMsg);
 }

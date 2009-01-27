@@ -45,6 +45,7 @@ public class FancyBoardPanel extends IBoard {
 	private boolean simpleBkg = false;
 	private String build = JuliusConstants.BUILD_VERSION;
 	private String focusTip = null;
+	public String soundProgressMsg = JuliusConstants.SND_MSG_STP;
 	
 	private float glowFactor = 0.1f;
 	private int dotCount = 0;
@@ -159,7 +160,7 @@ public class FancyBoardPanel extends IBoard {
 		this.arialContent = new Font("arial", Font.BOLD, 14);
 		this.arialStatistic = new Font("arial", Font.BOLD, 12);
 		this.arialProgress = new Font("arial", Font.BOLD, 14);
-		this.bombTimerFont = new Font("arial", Font.BOLD, 12);
+		this.bombTimerFont = new Font("arial", Font.BOLD, 10);
 		this.buildFont = new Font("lucida", Font.PLAIN, 10);
 		this.teacher = teacher;
 		this.teacher.setBlackBoard(this);
@@ -251,7 +252,19 @@ public class FancyBoardPanel extends IBoard {
 		//this.offBtn.paintIcon(this, g2d, 415, 85);
 		this.turn_default.paintIcon(this, g2d, 382, 70);
 
-		 
+		//play prgress msg
+		g2d.setFont(bombTimerFont);
+		if(soundProgressMsg.equalsIgnoreCase(JuliusConstants.SND_MSG_CON))
+			g2d.drawString(this.soundProgressMsg, 90, 212);
+		else
+		if(soundProgressMsg.equalsIgnoreCase(JuliusConstants.SND_MSG_PLN))
+			g2d.drawString(this.soundProgressMsg, 98, 212);
+		else
+		if(soundProgressMsg.equalsIgnoreCase(JuliusConstants.SND_MSG_STP))
+			g2d.drawString(this.soundProgressMsg, 96, 212);
+		else
+		if(soundProgressMsg.equalsIgnoreCase(JuliusConstants.SND_MSG_ERR))
+			g2d.drawString(this.soundProgressMsg, 100, 212);
 
 		// information phrase
 		if (currentMessage != null) {
@@ -323,6 +336,7 @@ public class FancyBoardPanel extends IBoard {
 		}
 		
 		//bomber
+		/*
 		g2d.setColor(Color.LIGHT_GRAY);
 		g2d.fillOval(310, 124, 40, 38);
 		g2d.setColor(Color.BLACK);
@@ -340,7 +354,7 @@ public class FancyBoardPanel extends IBoard {
 			else
 				g2d.drawString(this.teacher.getTimeBomber().getTimer()+"", 327, 146);
 		}
-		
+		*/
 		//TIP
 		/*
 		if(focusTip!=null && !this.simpleBkg){
@@ -373,9 +387,17 @@ public class FancyBoardPanel extends IBoard {
 		//build version
 		g2d.setColor(Color.black);
 		g2d.setFont(buildFont);
-		g2d.drawString("build "+this.build, 225, 235);
+		g2d.drawString(this.build, 225, 235);
 		
 	}// paint
+
+	public String getSoundProgressMsg() {
+		return soundProgressMsg;
+	}
+
+	public void setSoundProgressMsg(String soundProgressMsg) {
+		this.soundProgressMsg = soundProgressMsg;
+	}
 
 	private void writeText(Graphics2D g2d, String text){
 		g2d.setFont(bombTimerFont);
@@ -702,6 +724,12 @@ public class FancyBoardPanel extends IBoard {
 	
 	public void setTeacher(Teacher teacher){
 		this.teacher = teacher;
+	}
+
+	@Override
+	public void setSoundMsg(String newMsg) {
+		this.soundProgressMsg = newMsg;
+		
 	}
 }
 

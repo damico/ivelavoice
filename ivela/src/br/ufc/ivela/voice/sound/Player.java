@@ -16,6 +16,7 @@ import javax.sound.sampled.SourceDataLine;
 
 import br.ufc.ivela.voice.gui.FancyBoardPanel;
 import br.ufc.ivela.voice.gui.IBoard;
+import br.ufc.ivela.voice.julius.JuliusConstants;
 import br.ufc.ivela.voice.util.Message;
 
 import javazoom.spi.PropertiesContainer;
@@ -60,7 +61,7 @@ public class Player extends Thread {
 
             URL url = new URL(fileurl);
 
-
+            
             in = AudioSystem.getAudioInputStream(url);
 
             din = null;
@@ -92,7 +93,7 @@ public class Player extends Thread {
                 this.board.toggleButton(FancyBoardPanel.SPEAKER_BTN);
             }
         } catch (Exception e) {
-        	
+        	this.board.setSoundMsg(JuliusConstants.SND_MSG_ERR);
         	this.board.setMessage(new Message(Message.SOUND_ERROR));
         	this.board.toggleButton(FancyBoardPanel.SPEAKER_BTN);
         	this.board.activateBtn(FancyBoardPanel.PLAY_BTN);
@@ -116,6 +117,7 @@ public class Player extends Thread {
         line = getLine(targetFormat);
         if (line != null) {
             // Start
+        	this.board.setSoundMsg(JuliusConstants.SND_MSG_PLN);
             line.start();
             int nBytesRead = 0;
             while (nBytesRead != -1 && !stop) {
@@ -127,6 +129,7 @@ public class Player extends Thread {
                 }
             }
             // Stop
+            this.board.setSoundMsg(JuliusConstants.SND_MSG_STP);
             line.drain();
             line.stop();
             line.close();
