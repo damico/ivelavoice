@@ -16,7 +16,6 @@ import br.ufc.ivela.voice.julius.AnswerAnalyser;
 import br.ufc.ivela.voice.julius.IJuliusParent;
 import br.ufc.ivela.voice.julius.JuliusCommandLine;
 import br.ufc.ivela.voice.util.DebugPrinter;
-import br.ufc.ivela.voice.util.GenerateResult;
 import br.ufc.ivela.voice.util.Message;
 import br.ufc.ivela.voice.util.Parser;
 import br.ufc.ivela.voice.util.ServletComm;

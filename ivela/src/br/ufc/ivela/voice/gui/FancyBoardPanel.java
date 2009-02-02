@@ -44,7 +44,7 @@ public class FancyBoardPanel extends IBoard {
 	private boolean enableControlButton = false;
 	private boolean simpleBkg = false;
 	private String build = JuliusConstants.BUILD_VERSION;
-	private String focusTip = null;
+	//private String focusTip = null;
 	public String soundProgressMsg = JuliusConstants.SND_MSG_STP;
 	
 	private float glowFactor = 0.1f;
@@ -70,11 +70,11 @@ public class FancyBoardPanel extends IBoard {
 	private Icon exerciseProgress10 = null;
 	 
 	
-	private Icon tipIcon = new ImageIcon(this.getClass().getResource(
-	"/br/ufc/ivela/voice/images/ballon.png"));
+	//private Icon tipIcon = new ImageIcon(this.getClass().getResource(
+	//"/br/ufc/ivela/voice/images/ballon.png"));
 	
-	private Icon tipIconSd = new ImageIcon(this.getClass().getResource(
-	"/br/ufc/ivela/voice/images/ballon_sd.png"));
+	//private Icon tipIconSd = new ImageIcon(this.getClass().getResource(
+	//"/br/ufc/ivela/voice/images/ballon_sd.png"));
 	
 	private Icon exerciseProgress =  exerciseProgress0;
 	
@@ -303,7 +303,7 @@ public class FancyBoardPanel extends IBoard {
 							g2d.drawString("Chances left: " + phrase.getChances(), 165, 100);
 						else
 							g2d.drawString("Chances left: " + phrase.getChances(), 165, 90);
-						focusTip = phrase.getTip();
+						//focusTip = phrase.getTip();
 					}else if (phrase.isFocus() && teacher.isReadWordByWord()){
 						for(Word word : phrase.getWords()){
 							if(word.isFocus()){
@@ -398,7 +398,7 @@ public class FancyBoardPanel extends IBoard {
 	public void setSoundProgressMsg(String soundProgressMsg) {
 		this.soundProgressMsg = soundProgressMsg;
 	}
-
+/*
 	private void writeText(Graphics2D g2d, String text){
 		g2d.setFont(bombTimerFont);
 		g2d.setColor(Color.blue);
@@ -422,7 +422,7 @@ public class FancyBoardPanel extends IBoard {
 			g2d.drawString(toPaint, 170, disY);
 			toPaint="";
 		}
-	}
+	}*/
 	
 	@Override
 	public void setMessage(Message msg) {

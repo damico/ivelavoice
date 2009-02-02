@@ -85,7 +85,7 @@ public class MultiplePlayerApplet extends JApplet {
     }
     
     public static void main(String[] args) {
-		int n = 8;
+		
 		double ceil = Math.ceil(8/5.0);
 		System.out.println(ceil);
 		System.out.println((int)(ceil)+"");
