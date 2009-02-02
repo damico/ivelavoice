@@ -16,7 +16,7 @@ public final class JuliusConstants {
     
     public static final String URL_WINDOWS = JULIUS_FILE_HOST+"windows/julius.zip";
     public static final String URL_LINUX = JULIUS_FILE_HOST+"linux/julius.zip";
-    public static final String BUILD_VERSION = "Homer";
+    public static final String BUILD_VERSION = "2.0.1";
     
     //public static final String WORD_GRAMMAR = "julian_word.jconf";
     //public static final String PRESENT_CONT = "julian_present_cont.jconf";
