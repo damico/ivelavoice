@@ -2,7 +2,6 @@ package br.ufc.ivela.voice.sound;
  
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -14,6 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
 import br.ufc.ivela.voice.julius.JuliusConstants;
+import br.ufc.ivela.voice.util.ServletComm;
 
 /**
  *
@@ -52,6 +52,8 @@ public class PlayerApplet extends JApplet {
         btnPlay.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
+            	//CHAMADA JAVASCRIPT!!!!
+            	callJS();
             	staLabel.setText(JuliusConstants.SND_MSG_CON);
         		player = playerFactory.getPlayer(url,staLabel);
         		player.start();
@@ -121,6 +123,10 @@ public class PlayerApplet extends JApplet {
         }
     }
 
+    public void callJS(){
+    	//CHAMADA JAVASCRIPT!!!
+    	ServletComm.callJavasScriptComputeUrl(this, url);
+    }
 	public JLabel getStaLabel() {
 		return staLabel;
 	}

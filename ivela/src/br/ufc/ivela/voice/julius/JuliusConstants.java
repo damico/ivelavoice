@@ -32,4 +32,6 @@ public final class JuliusConstants {
     public static String SND_MSG_STP = "stopped";
     public static String SND_MSG_ERR = "!error!";
     
+    public static String EXE_ID = "-1";
+    
 }

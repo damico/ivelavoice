@@ -14,6 +14,7 @@ import br.ufc.ivela.voice.gui.FancyBoardPanel;
 import br.ufc.ivela.voice.julius.JuliusConstants;
 import br.ufc.ivela.voice.sound.Player;
 import br.ufc.ivela.voice.teacher.Teacher;
+import br.ufc.ivela.voice.util.ServletComm;
 
 /**
  * 
@@ -59,7 +60,10 @@ public class FancyMouseHandler implements MouseListener, MouseMotionListener {
                             if (!this.teacher.getBoard()
                                             .isActivateBtn(FancyBoardPanel.PLAY_BTN)
                                             && isOn) {
-                                    this.teacher.getBoard().activateBtn(FancyBoardPanel.PLAY_BTN);
+                            	    //CHAMADA JAVASCRIPT!!!!
+                            		ServletComm.callJavasScriptComputeExe(this.teacher.getParent(), JuliusConstants.EXE_ID);
+                                    
+                            	    this.teacher.getBoard().activateBtn(FancyBoardPanel.PLAY_BTN);
                                     this.teacher.getBoard().toggleButton(FancyBoardPanel.SPEAKER_BTN);
 
                                     if (this.teacher.getFocusText() != null) {

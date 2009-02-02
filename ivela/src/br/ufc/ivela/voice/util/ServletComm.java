@@ -58,6 +58,20 @@ public class ServletComm {
 
 	}
 	
+	public static void callJavasScriptComputeExe(JApplet parent, String param){
+		System.out.println("Javascript");
+		JSObject win = (JSObject) JSObject.getWindow(parent);
+	       win.eval("computeExe(\" "+param +"\")");
+
+	}
+	
+	public static void callJavasScriptComputeUrl(JApplet parent, String param){
+		System.out.println("Javascript");
+		JSObject win = (JSObject) JSObject.getWindow(parent);
+	       win.eval("computeUrl(\" "+param +"\")");
+
+	}
+	
 	public static String getHostName() {
 		String res = "";
 		try {

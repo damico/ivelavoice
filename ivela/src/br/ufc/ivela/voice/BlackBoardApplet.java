@@ -101,6 +101,7 @@ public class BlackBoardApplet extends JApplet {
         String installerHost = "";
         String juliusVersion = "";
         String bgColor = "";
+        String exeId = "";
          
         
         exe = getParameter("exe");
@@ -113,7 +114,7 @@ public class BlackBoardApplet extends JApplet {
         installerHost = getParameter("installerHost");
         juliusVersion = getParameter("juliusVersion");
         bgColor = getParameter("bgColor");
-         
+        exeId = getParameter("exeId");
         
         
         if(version==null || version.equals("") || version.equals("0")){
@@ -139,6 +140,10 @@ public class BlackBoardApplet extends JApplet {
         if(bgColor!=null && !bgColor.equalsIgnoreCase("")){
         	JuliusConstants.BG_COLOR = bgColor;
         } 
+        
+        if(exeId!=null && !exeId.equalsIgnoreCase("")){
+        	JuliusConstants.EXE_ID = exeId;
+        }
         
         t.createExercise(exe, conf, question, audio, chances);
     }
