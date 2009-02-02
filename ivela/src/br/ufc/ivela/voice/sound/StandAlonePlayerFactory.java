@@ -5,6 +5,8 @@
 
 package br.ufc.ivela.voice.sound;
 
+import javax.swing.JLabel;
+
 /**
  *
  * @author jefferson
@@ -12,13 +14,17 @@ package br.ufc.ivela.voice.sound;
 public class StandAlonePlayerFactory {
 
     private StandAlonePlayer player;
+     
 
-    public StandAlonePlayer getPlayer(String URL) {
-        if (player != null) {
+     
+    
+    public StandAlonePlayer getPlayer(String URL, JLabel stat) {
+         
+    	if (player != null) {
             player._stopPlay();
             
         }
-        this.player = new StandAlonePlayer(URL);
+        this.player = new StandAlonePlayer(URL, stat);
         return this.player;
     }
 }

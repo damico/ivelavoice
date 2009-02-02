@@ -123,7 +123,7 @@ class PlayerPanel extends JPanel{
 
             public void actionPerformed(ActionEvent e) {
             	
-        		player = playerFactory.getPlayer(url);
+        		player = playerFactory.getPlayer(url,null);
         		player.start();
 
             }

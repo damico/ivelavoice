@@ -14,6 +14,9 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.DataLine;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.SourceDataLine;
+import javax.swing.JLabel;
+
+import br.ufc.ivela.voice.julius.JuliusConstants;
  
 
 import javazoom.spi.PropertiesContainer;
@@ -32,11 +35,13 @@ public class StandAlonePlayer extends Thread {
     private AudioInputStream din = null;
     private Semaphore pauseSemaphore = new Semaphore(0); 
     private boolean pause;
+    private JLabel parent;
 
-    public StandAlonePlayer(String fileurl) {
+    public StandAlonePlayer(String fileurl, JLabel parent) {
         System.out.println("URL: " + fileurl);
     	 
     	this.fileurl = fileurl;
+    	this.parent = parent;
         
     }
 
@@ -53,7 +58,7 @@ public class StandAlonePlayer extends Thread {
     }
 
     public void _testPlayURL() {
-        System.out.println("22");
+         
         this.stop = false;
         try {
 
@@ -90,7 +95,8 @@ public class StandAlonePlayer extends Thread {
             }
         } catch (Exception e) {
         	
-        	 
+        	if(this.parent!=null)
+        		this.parent.setText(JuliusConstants.SND_MSG_ERR);
              System.out.println("testPlay : " + e.getMessage());
         }
     }
@@ -109,6 +115,8 @@ public class StandAlonePlayer extends Thread {
         line = getLine(targetFormat);
         if (line != null) {
             // Start
+        	if(this.parent!=null)
+        		this.parent.setText(JuliusConstants.SND_MSG_PLN);
             line.start();
             int nBytesRead = 0;
             while (nBytesRead != -1 && !stop) {
@@ -121,6 +129,8 @@ public class StandAlonePlayer extends Thread {
                 }
             }
             // Stop
+            if(this.parent!=null)
+        		this.parent.setText(JuliusConstants.SND_MSG_STP);
             line.drain();
             line.stop();
             line.close();

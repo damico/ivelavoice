@@ -2,6 +2,7 @@ package br.ufc.ivela.voice.sound;
  
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -9,6 +10,8 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JApplet;
 import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
 
 import br.ufc.ivela.voice.julius.JuliusConstants;
 
@@ -24,9 +27,16 @@ public class PlayerApplet extends JApplet {
     private static final long serialVersionUID = 1L;
     private String url = "";
     private StandAlonePlayer player;
+    private JLabel staLabel = new JLabel("stopped");
 
     public void init() {
         final StandAlonePlayerFactory playerFactory = new StandAlonePlayerFactory();
+        
+        this.staLabel.setSize(new Dimension(111,20));
+        this.staLabel.setLocation(0, 27);
+        this.staLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        //this.staLabel.setHorizontalTextPosition(SwingConstants.CENTER);
+        
         //btn play
         Icon playImg = new ImageIcon(this.getClass().getResource("/br/ufc/ivela/voice/images/play_on_orange.png"));
         Icon stopImg = new ImageIcon(this.getClass().getResource("/br/ufc/ivela/voice/images/stop_on_orange.png"));
@@ -42,8 +52,8 @@ public class PlayerApplet extends JApplet {
         btnPlay.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
-            	
-        		player = playerFactory.getPlayer(url);
+            	staLabel.setText(JuliusConstants.SND_MSG_CON);
+        		player = playerFactory.getPlayer(url,staLabel);
         		player.start();
 
             }
@@ -78,10 +88,11 @@ public class PlayerApplet extends JApplet {
         btnStop.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
-
+            	
                 if (player!=null) {
                      player._stopPlay();
                 }
+                staLabel.setText(JuliusConstants.SND_MSG_STP);
 
             }
         });
@@ -94,6 +105,7 @@ public class PlayerApplet extends JApplet {
         this.add(btnPlay);
         this.add(btnPause);
         this.add(btnStop);
+        this.add(staLabel);
         this.setBackground(Color.white);
 
     }
@@ -108,4 +120,12 @@ public class PlayerApplet extends JApplet {
              
         }
     }
+
+	public JLabel getStaLabel() {
+		return staLabel;
+	}
+
+	public void setStaLabel(JLabel staLabel) {
+		this.staLabel = staLabel;
+	}
 }
