@@ -1,0 +1,16 @@
+#Information about js calls into audio/voice applets
+
+
+= Scope =
+
+
+
+== ComputeExe ==
+
+This call aims to send exercise ID from Voice Recognition applet.
+This call just applies to Voice Recognition applet.
+
+== ComputeUrl ==
+
+This call aims to send the url of .ogg file from Audio Player applet.
+This call just applies to Audio Player applet
