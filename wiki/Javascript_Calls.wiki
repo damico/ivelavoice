@@ -2,15 +2,17 @@
 
 
 = Scope =
-
+ 
+ * The whole idea of add js calls to applet born with a common need: How to compute the use of each applet? How to know if a specific user listened a .ogg file or tried the recognition applet?
+ * To implement the solution of the following 2 js calls, the idea was: Send unique data from each applet. So for recognition applet was created a exeID variable, while for player applet we choose to send as a unique data the url of .ogg file that was played.
 
 
 == ComputeExe ==
 
-This call aims to send exercise ID from Voice Recognition applet.
-This call just applies to Voice Recognition applet.
+ * This call aims to send exercise ID from Voice Recognition applet.
+ * This call just applies to Voice Recognition applet.
 
 == ComputeUrl ==
 
-This call aims to send the url of .ogg file from Audio Player applet.
-This call just applies to Audio Player applet
+ * This call aims to send the url of .ogg file from Audio Player applet.
+ * This call just applies to Audio Player applet
