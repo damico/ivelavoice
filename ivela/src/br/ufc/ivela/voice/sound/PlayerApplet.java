@@ -115,12 +115,6 @@ public class PlayerApplet extends JApplet {
     public void readParameters() {
         String paramURL = getParameter("audio_url");
         String audioHost = getParameter("audioHost");
-
-        if (paramURL != null) {
-        	JuliusConstants.AUDIO_URL= audioHost;
-        	this.url = JuliusConstants.AUDIO_URL+paramURL;
-             
-        }
     }
 
     public void callJS(){

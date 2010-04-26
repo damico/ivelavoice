@@ -53,9 +53,12 @@ public class Teacher extends Thread implements IJuliusParent {
      
     private JApplet parent;
      
+    private String audioHost;
     
     public Teacher(JApplet parent) {
 
+    	this.audioHost = parent.getParameter("audioHost");
+    	
         this.exercises = new ArrayList<Exercise>();
         this.control = new Semaphore(0);
         this.juliusCommandLine = new JuliusCommandLine();
@@ -72,7 +75,7 @@ public class Teacher extends Thread implements IJuliusParent {
      * The audio files names are in one String object, separated by #.
      */
     public void createExercise(String exercise, String grammarFile, String question, String audio, String chances) {
-        Exercise e = Parser.parseAppletParamTextBySeparator(exercise, audio, chances,"#");
+        Exercise e = Parser.parseAppletParamTextBySeparator(exercise, audio, chances,"#", audioHost);
         this.exercises.add(e);
         e.setNumber(this.exercises.size());
         e.setExerciseTitle(question);

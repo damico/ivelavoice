@@ -74,7 +74,7 @@ public class Parser {
 	}
 
 	public static Exercise parseAppletParamTextBySeparator(String text,
-			String audio, String chances, String separator) {
+			String audio, String chances, String separator, String audioHost) {
 		Exercise exe = null;
 		StringTokenizer phrases = new StringTokenizer(text, separator);
 
@@ -110,7 +110,7 @@ public class Parser {
 			// System.out.println("@" + audioFile);
 			Phrase p = phrasesFromJulius.get(counter++);
 			if (p != null)
-				p.setAudioURL(JuliusConstants.AUDIO_URL + audioFile);
+				p.setAudioURL(audioHost + audioFile);
 		}
 
 		// chances

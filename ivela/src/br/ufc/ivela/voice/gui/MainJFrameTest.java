@@ -10,6 +10,7 @@ import java.awt.event.WindowEvent;
 
 import javax.swing.JFrame;
 
+import br.ufc.ivela.voice.julius.JuliusConstants;
 import br.ufc.ivela.voice.julius.JuliusInstaller;
 import br.ufc.ivela.voice.teacher.Teacher;
 import br.ufc.ivela.voice.util.Message;
@@ -108,7 +109,7 @@ public class MainJFrameTest extends JFrame {
         	@Override
         	public void run() {
         		JuliusInstaller.panel = mainPanel;
-        		JuliusInstaller.install();
+        		JuliusInstaller.install(JuliusConstants.JULIUS_FILE_HOST);
                         mainPanel.setInstalled(true);
                         mainPanel.setMessage(new Message(Message.START));
                         //kill julius, if it is already started.

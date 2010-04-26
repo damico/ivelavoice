@@ -8,7 +8,7 @@ import br.ufc.ivela.voice.util.FileUtil;
 
 /**
  * 
- * @author jefferson
+ * @author jefferson jdamico
  */
 public class JuliusInstaller {
 	
@@ -16,12 +16,12 @@ public class JuliusInstaller {
     /**
      * Generic installation of julius on client side. It depends on its operational system.
      */
-    public static void install() {
+    public static void install(String installerHost) {
 
         if (System.getProperty("os.name").equalsIgnoreCase("linux")) {
-            installLinux();
+            installLinux(installerHost);
         } else {
-            installWindows();
+            installWindows(installerHost);
         }
         
         
@@ -30,7 +30,7 @@ public class JuliusInstaller {
     /**
      * Intall julius on Linux
      */
-    public static void installLinux() {
+    public static void installLinux(String installerHost) {
 
         //verify directory and creates if it doesn'exists.
         
@@ -52,7 +52,11 @@ public class JuliusInstaller {
         //download zip file
         String localZipFile = JuliusConstants.PATH_SANDBOX_LINUX + "julius.zip";
        
-        FileDownload.download(JuliusConstants.URL_LINUX, localZipFile);
+        String dpath = installerHost + JuliusConstants.URL_LINUX;
+        
+        System.out.println(dpath);
+        
+        FileDownload.download(dpath, localZipFile);
 
         //install (unzip)
         
@@ -74,7 +78,7 @@ public class JuliusInstaller {
     /**
      * Install julius on windows
      */
-    public static void installWindows() {
+    public static void installWindows(String installerHost) {
 
         //verify directory and creates if it doesn'exists.
         boolean exists = FileUtil.createDir();
@@ -93,9 +97,11 @@ public class JuliusInstaller {
         
         }
         
+        String dpath = installerHost + JuliusConstants.URL_WINDOWS;
+        
         String localZipFile = JuliusConstants.PATH_SANDBOX_WINDOWS + "julius.zip";
-        FileDownload.download(JuliusConstants.URL_WINDOWS, localZipFile);
-
+        FileDownload.download(dpath, localZipFile);
+        System.out.println(dpath);
         //install (unzip)
         try {
             FileUtil.unzip(localZipFile, JuliusConstants.PATH_SANDBOX_WINDOWS);

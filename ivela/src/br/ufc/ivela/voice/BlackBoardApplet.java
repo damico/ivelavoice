@@ -21,7 +21,7 @@ public class BlackBoardApplet extends JApplet {
      */
     
     private static final long serialVersionUID = 1L;
-   
+    private String installerHost;
     
     private Teacher t = null;
     private int boardVersion = 0 ; // 0 - Normal Applet, with JEditorPane
@@ -54,7 +54,7 @@ public class BlackBoardApplet extends JApplet {
         	@Override
         	public void run() {
         		JuliusInstaller.panel = mainPanel;
-        		JuliusInstaller.install();
+        		JuliusInstaller.install(installerHost);
                 mainPanel.setInstalled(true);
                 mainPanel.setMessage(new Message(Message.START));
                 //kill julius, if it is already started.
@@ -98,7 +98,6 @@ public class BlackBoardApplet extends JApplet {
          
         String version = "";
         String audioHost = "";
-        String installerHost = "";
         String juliusVersion = "";
         String bgColor = "";
         String exeId = "";
